@@ -1,11 +1,7 @@
 from openai import AsyncOpenAI
 from openai import OpenAI
 import json
-# from dotenv import load_dotenv
 import os
-
-# load_dotenv()  # Load environment variables from .env
-api_key_env = os.getenv("API_KEY_ENV")
 
 def set_prompt(objects,frames,examples,premise,conclusion):
     prompt = ""
@@ -70,6 +66,7 @@ Respond with only a valid JSON object. Do not include markdown syntax (like trip
 
 
 async def evaluate_prompt_async(prompt: str) -> dict:
+    api_key_env = os.getenv("API_KEY_ENV")
     client = AsyncOpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key_env,  # <- Put your actual API key here
@@ -94,8 +91,7 @@ async def evaluate_prompt_async(prompt: str) -> dict:
 
 
 def evaluate_prompt(prompt):
-
-
+    api_key_env = os.getenv("API_KEY_ENV")
     client = OpenAI(
         base_url="https://openrouter.ai/api/v1",
         api_key=api_key_env,
