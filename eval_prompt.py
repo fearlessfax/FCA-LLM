@@ -61,10 +61,6 @@ Respond with only a valid JSON object. Do not include markdown syntax (like trip
 
     return prompt
 
-
-# export API_KEY="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"
-
-
 async def evaluate_prompt_async(prompt: str) -> dict:
     api_key_env = os.getenv("API_KEY_ENV")
     client = AsyncOpenAI(
@@ -110,8 +106,4 @@ def evaluate_prompt(prompt):
     parsed = json.loads(Response)
 
     return parsed
-
-# if __name__ == "__main__":
-#     eval = set_prompt(['a','b','c','d'],['e','f','g','h'],['eg1','eg2','eg3','eg4'],['abc'],['bcd','cdf'])
-#     print(eval)
 
